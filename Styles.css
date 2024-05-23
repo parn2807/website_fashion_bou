@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    font-family: "Ubuntu", sans-serif
+}
+
+:root {
+    --max-width: 1200px;
+    --no-of-slides: 3;
+    --slides-in-view: 1;
+    --slide-width: 1200px;
+    --slide-height: 600px;
+    --iteration-time: 10s;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header_bar {
+    color: black;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.section_container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+    color: black;
+}
+
+.section_title {
+    padding-bottom: 0.5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+    position: relative;
+}
+
+.section_title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 75px;
+    background-color: var(--text-dark);
+}
+
+
+.nav_container {
+    background-color: black;
+    align-items: center;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_link {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    list-style: none;
+
+}
+
+.nav_icons {
+    color: white;
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+}
+
+.nav_icons span {
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav_icons span:hover {
+    color: lightblue;
+}
+
+.nav_logo {
+    color: white;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.btn {
+    padding: 24px 50px;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.link a {
+    padding: 0px 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s
+}
+
+.link a:hover {
+    color: lightblue;
+}
+
+header {}
+
+.header_container {
+    padding: 5rem 1rem;
+    display: grid;
+}
+
+.header_content p {
+    font-size: 16px;
+    font-weight: 600;
+    color: orangered;
+    margin-bottom: 8px;
+}
+
+.header_content h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: black;
+}
+
+.header_content .btn {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+}
+
+.header_content .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+@keyframes scroll {
+
+    0% {
+    transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(var(--slide-width) * var(--no-of-slides)* -1));
+    }
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(0%);
+    }
+
+    30% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(-100%);
+    }
+
+    55% {
+        transform: translateX(-200%);
+    }
+
+    70% {
+        transform: translateX(-200%);
+    }
+
+    75% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.carousel__wrapper {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+
+    width: calc(var(--slides-in-view) * var(--slide-width));
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.carousel {
+    padding: 100px 0;
+    background: lightblue;
+
+    overflow: hidden;
+    width: calc(2 * var(--no-of-slides));
+}
+
+.carousel__slide {
+    animation: scroll var(--iteration-time) linear infinite;
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 auto;
+    width: var(--slide-width);
+    height: var(--slide-height);
+    box-sizing: border-box;
+    /*border: 1px dotted darkblue;*/
+}
+
+.carousel__image {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 50%;
+    /*width: 100px;*/
+    margin: 15px 20px;
+}
+
+
+.collection_container {
+    position: relative;
+}
+
+.collection_container img {
+    max-width: 400px;
+    margin: auto;
+}
+
+.collection_content {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+}
+
+.collection_content .section_title {
+    margin-bottom: 2rem;
+}
+
+.collection_content p {
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.collection_content h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.collection_content .btn {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+}
+
+.collection_content .btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.sale_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.sale_card {
+    position: relative;
+    overflow: hidden;
+}
+
+.sale_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.sale_title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.sale_title span {
+    font-size: 2.5rem;
+}
+
+.sale_subtitle {
+    font-size: 1rem;
+}
+
+.sale_btn {
+    margin-top: 2rem;
+    color: white;
+    background-color: black;
+}
+
+.sale_card::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: -100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.sale_card:hover::before {
+    top: 0;
+}
+
+.sale_card:hover .sale_btn {
+    color: black;
+    background-color: white;
+}
+
+.musthave_nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.musthave_nav a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s;
+}
+
+.musthave_nav a:hover {
+    color: black;
+}
+
+.musthave_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.musthave_card {
+    display: grid;
+    gap: 0.5rem;
+    color: black;
+}
+
+.musthave_card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.musthave_card p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.musthave_card p del {
+    font-weight: 400;
+    color: gray;
+}
+
+.news {
+    background-color: white;
+}
+
+.news_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.news_details {
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
+
+.news_details p {
+    font-size: 0.8rem;
+    color: white;
+}
+
+.news_details p i {
+    font-size: 0.5rem;
+    color: white;
+    padding: 0.5rem;
+}
+
+.news_details p span {
+    font-weight: 600;
+}
+
+.news_details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.news_details a i {
+    font-size: 1.2rem;
+    color: white;
+    transition: 0.3s;
+}
+
+.news_details a:hover i {
+    color: black;
+}
+
+.brands_container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+}
+
+.brand_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.brand_image img {
+    max-width: 120px;
+}
+
+.brand_image:hover {
+    opacity: 1;
+}
+
+.footer_container {
+    padding: 5rem 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+
+}
+
+.footer_heading {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.footer_heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 50px;
+    background-color: oldlace;
+}
+
+.footer_col p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer_col p:hover {
+    color: lightblue;
+}
+
+.footer_col p i {
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+.footer_bar {
+
+    text-align: center;
+}
+
+.copyright {
+    font-size: 15px;
+    font-weight: 400;
+    padding: 16px;
+    color: black;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/* @media (width < 900px) {
+    header {
+        margin-top: 5rem;
+    }
+
+    .sale_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .musthave_grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .news_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brands_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .instagram_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer_bar {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    .footer_form {
+        justify-content: center;
+    }
+}
+
+@media (width < 600px) {
+    .nav_link {
+        display: none;
+
+    }
+
+    header {
+        margin-top: 0;
+    }
+
+    .header_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .header_image {
+        display: none;
+    }
+
+    .sale_grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .musthave_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .news_grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .brands_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
